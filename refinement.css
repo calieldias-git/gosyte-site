@@ -1,0 +1,9 @@
+/* Refinamento de legibilidade e alinhamento após revisão visual */
+.eyebrow,.section-kicker,.mini-label,.hero-foot{font-size:11px;letter-spacing:.15em}
+.section-kicker{color:#5d5d58;font-weight:500}
+.hero-foot{color:#b6b6ae}
+.scroll-line{width:58px;background:#969690}
+.visual-index{display:none}
+.process .section-kicker{color:#c2c2ba}
+.statement-content p,.service-item p{color:#5e5e5a}
+@media(max-width:800px){.eyebrow,.section-kicker,.mini-label,.hero-foot{font-size:10px}.scroll-line{width:48px}}
