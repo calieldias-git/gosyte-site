@@ -254,3 +254,218 @@
   .brand-draw.is-ready .brand-draw-main-text { animation: none; clip-path: none; }
 }
 
+/* Flow Button aplicado somente ao contato flutuante do WhatsApp. */
+.floating-whatsapp.flow-button {
+  isolation: isolate;
+  overflow: hidden;
+  width: 136px;
+  height: 48px;
+  border: 1px solid rgba(10, 10, 10, .32);
+  border-radius: 999px;
+  background: #f5f5f2;
+  color: #111;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .28);
+  transition: border-radius 600ms cubic-bezier(.23, 1, .32, 1),
+    border-color 600ms cubic-bezier(.23, 1, .32, 1),
+    color 600ms cubic-bezier(.23, 1, .32, 1),
+    transform 250ms ease;
+}
+.floating-whatsapp.flow-button:hover {
+  width: 136px;
+  border-color: transparent;
+  border-radius: 12px;
+  color: #fff;
+  transform: none;
+}
+.floating-whatsapp.flow-button:active { transform: scale(.95); }
+.floating-whatsapp.flow-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+.floating-whatsapp.flow-button .floating-label {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transform: translateX(-4px);
+  transition: transform 500ms ease-out;
+}
+.floating-whatsapp.flow-button:hover .floating-label { transform: translateX(4px); }
+.flow-arrow {
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: left 650ms cubic-bezier(.34, 1.56, .64, 1),
+    right 650ms cubic-bezier(.34, 1.56, .64, 1),
+    opacity 250ms ease;
+}
+.flow-arrow-in { left: -25%; opacity: 0; }
+.flow-arrow-out { right: 14px; }
+.floating-whatsapp.flow-button:hover .flow-arrow-in { left: 13px; opacity: 1; }
+.floating-whatsapp.flow-button:hover .flow-arrow-out { right: -25%; opacity: 0; }
+.flow-circle {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #111;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: width 700ms cubic-bezier(.19, 1, .22, 1),
+    height 700ms cubic-bezier(.19, 1, .22, 1), opacity 250ms ease;
+}
+.floating-whatsapp.flow-button:hover .flow-circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+@media (max-width: 800px) {
+  .floating-whatsapp.flow-button,
+  .floating-whatsapp.flow-button:hover { width: 136px; height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-whatsapp.flow-button,
+  .floating-whatsapp.flow-button .floating-label,
+  .floating-whatsapp.flow-button .flow-arrow,
+  .floating-whatsapp.flow-button .flow-circle { transition: none; }
+}
+
+/* O mesmo gesto Flow Button nos três CTAs destacados da página. */
+.flow-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-inline: 36px;
+  white-space: nowrap;
+  transition: border-radius 600ms cubic-bezier(.23, 1, .32, 1),
+    border-color 600ms cubic-bezier(.23, 1, .32, 1),
+    color 600ms cubic-bezier(.23, 1, .32, 1),
+    transform 250ms ease;
+}
+.flow-cta:hover,
+.flow-cta:focus-visible {
+  border-radius: 12px;
+  transform: none;
+}
+.flow-cta:active { transform: scale(.97); }
+.flow-cta .flow-cta-label {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: inherit;
+  white-space: nowrap;
+  transform: translateX(-4px);
+  transition: transform 600ms cubic-bezier(.23, 1, .32, 1);
+}
+.flow-cta:hover .flow-cta-label,
+.flow-cta:focus-visible .flow-cta-label { transform: translateX(4px); }
+.flow-cta-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: left 650ms cubic-bezier(.34, 1.56, .64, 1),
+    right 650ms cubic-bezier(.34, 1.56, .64, 1),
+    opacity 250ms ease;
+}
+.flow-cta-arrow-in { left: -25%; opacity: 0; }
+.flow-cta-arrow-out { right: 14px; }
+.flow-cta:hover .flow-cta-arrow-in,
+.flow-cta:focus-visible .flow-cta-arrow-in { left: 14px; opacity: 1; }
+.flow-cta:hover .flow-cta-arrow-out,
+.flow-cta:focus-visible .flow-cta-arrow-out { right: -25%; opacity: 0; }
+.flow-cta-circle {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: width 700ms cubic-bezier(.19, 1, .22, 1),
+    height 700ms cubic-bezier(.19, 1, .22, 1), opacity 250ms ease;
+}
+.flow-cta .flow-cta-circle { margin: 0; font-size: inherit; }
+.flow-cta:hover .flow-cta-circle,
+.flow-cta:focus-visible .flow-cta-circle { width: 280px; height: 280px; opacity: 1; }
+.flow-cta-light { color: #080808; }
+.flow-cta-light .flow-cta-circle { background: #111; }
+.flow-cta-light:hover,
+.flow-cta-light:focus-visible { color: #fff; }
+.flow-cta-glass { color: #fff; }
+.flow-cta-glass .flow-cta-circle { background: #f5f5f2; }
+.flow-cta-glass:hover,
+.flow-cta-glass:focus-visible { color: #111; border-color: transparent; }
+.flow-cta-dark { color: #fff; }
+.flow-cta-dark .flow-cta-circle { background: #f5f5f2; }
+.flow-cta-dark:hover,
+.flow-cta-dark:focus-visible { color: #111; }
+@media (max-width: 800px) {
+  .flow-cta:hover,
+  .flow-cta:focus-visible { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-cta,
+  .flow-cta .flow-cta-label,
+  .flow-cta .flow-cta-arrow,
+  .flow-cta .flow-cta-circle { transition: none; }
+}
+
+/* NavigationMenu do shadcn adaptado aos links existentes do cabeçalho. */
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-trigger {
+  display: inline-flex;
+  width: max-content;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 250ms ease, background-color 250ms ease, border-color 250ms ease;
+}
+.nav-trigger:hover,
+.nav-trigger:focus-visible {
+  border-color: rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+}
+.nav-trigger:focus-visible {
+  outline: 2px solid rgba(245, 245, 242, .85);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-trigger { transition: none; }
+}
+
